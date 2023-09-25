@@ -9,7 +9,7 @@
 #define INTERFACES_I_TIME_I_TIME_H_
 
 #include "_core/c_typedefs.h"
-#include "_core/c_error.h"
+#include "_core/c_error/c_error.h"
 #include "_core/c_timespan/c_timespan.h"
 
 
@@ -19,8 +19,8 @@
 /// </summary>
 typedef struct i_time_t
 {
-    return_t(*func_init)(c_error_h err);
-    return_t(*func_time_update)(c_error_h err, c_timespan_h handler);
+    return_t(*func_init)();
+    return_t(*func_time_update)( c_timespan_h handler);
 }i_time_t;
 
 typedef i_time_t* i_time_h;
@@ -31,7 +31,7 @@ typedef i_time_t* i_time_h;
 /// <param name="func_init">fonction d'initialisation </param>
 /// <param name="func_get_time">fonction pour récupérer le temps</param>
 /// <returns></returns>
-i_time_t i_time_create(c_error_h err, void* func_init, void* func_time_update);
-return_t i_time_init(c_error_h err,i_time_h handler, void* func_init, void* func_time_update);
+i_time_t i_time_create( void* func_init, void* func_time_update);
+return_t i_time_init(i_time_h handler, void* func_init, void* func_time_update);
 
 #endif /* INTERFACES_I_TIME_I_TIME_H_ */

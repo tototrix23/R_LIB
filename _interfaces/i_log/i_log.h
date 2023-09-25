@@ -10,7 +10,7 @@
 
 #include <stdarg.h>
 #include <_core/c_typedefs.h>
-#include <_core/c_error.h>
+#include <_core/c_error/c_error.h>
 
 typedef struct i_log_struct
 {

@@ -7,6 +7,9 @@
 
 #include "h_log.h"
 
+i_log_struct i_log =
+{ .write_e = 0x00, .write_w = 0x00, .write_i = 0x00, .write_d = 0x00 };
+
 
 void h_log_write_e(uint8_t mode,char *module, char* s, char* file,const char* func, uint16_t line, ...)
 {

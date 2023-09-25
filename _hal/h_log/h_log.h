@@ -12,7 +12,7 @@
 #include <stddef.h>
 #include "_core/c_typedefs.h"
 #include "_core/c_return_codes.h"
-#include "_core/c_error.h"
+#include "_core/c_error/c_error.h"
 #include "_interfaces/i_log/i_log.h"
 
 #define R_LIB_LOG_MODULE  "RLIB"

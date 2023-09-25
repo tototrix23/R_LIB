@@ -9,16 +9,21 @@
 #define CORE_C_SALLOC_C_SALLOC_H_
 
 #include <_config_compiler/config.h>
-#include "_core/c_config_verify.h"
+#include <__config/c_config_verify.h>
 #include "_core/c_return_codes.h"
-#include "_core/c_error.h"
+#include "_core/c_error/c_error.h"
 
 #if USE_SALLOC == 1
-void* c_salloc(c_error_h err,size_t size);
-void  c_sfree(c_error_h err, void *ptr);
+//return_t c_salloc2(c_error_h err,size_t size,void **ptr);
 
-#define C_SALLOC(err,x)  c_salloc(err,x)
-#define C_SFREE(err,x)  c_sfree(err,x)
+void c_salloc_init(void);
+void* c_salloc_get_addr(void);
+return_t c_salloc(size_t size,void **ptr);
+return_t  c_sfree(void *ptr);
+
+
+#define C_SALLOC(size,ptr)  c_salloc(size,ptr)
+#define C_SFREE(ptr)  c_sfree(ptr)
 #else
 #include <stdlib.h>
 #define C_SALLOC(err,x) c_malloc(x)

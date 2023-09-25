@@ -10,7 +10,7 @@
 
 #include "c_typedefs.h"
 #include "c_return_codes.h"
-#include "c_error.h"
+#include "_core/c_error/c_error.h"
 #include "c_log.h"
 
 typedef struct c_uid_t
@@ -21,6 +21,6 @@ typedef struct c_uid_t
 
 typedef c_uid_t* c_uid_h;
 
-return_t c_uid_init(c_error_h err,c_uid_h ptr);
+return_t c_uid_init(c_uid_h ptr);
 
 #endif /* CORE_C_UID_C_UID_H_ */

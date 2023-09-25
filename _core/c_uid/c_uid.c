@@ -18,12 +18,10 @@
 static uint32_t static_uid = 1;
 
 
-return_t c_uid_init(c_error_h err,c_uid_h ptr)
+return_t c_uid_init(c_uid_h ptr)
 {
 #if R_LIB_CHECK_PARAM_ENABLE == 1
-    ASSERT(err != NULL)
     ASSERT(ptr != NULL)
-    ERROR_CHECK(err)
 #endif
 
     memset(ptr, 0, sizeof(c_uid_t));

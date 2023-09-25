@@ -14,7 +14,7 @@
 #define NULL               0
 #endif
 
-#if TARGET == TARGET_CORTEX_M4
+#if TARGET == TARGET_RENESAS_RAM4
 typedef unsigned char       bool_t;
 typedef signed short        return_t;
 typedef __INT8_TYPE__       int8_t ;

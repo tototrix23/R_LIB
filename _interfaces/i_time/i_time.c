@@ -13,14 +13,12 @@
 #undef  LOG_MODULE
 #define LOG_MODULE     R_LIB_LOG_MODULE
 
-return_t i_time_init(c_error_h err,i_time_h handler, void* func_init, void* func_time_update)
+return_t i_time_init(i_time_h handler, void* func_init, void* func_time_update)
 {
 #if R_LIB_CHECK_PARAM_ENABLE == 1
-    ASSERT(err != NULL)
     ASSERT(handler != NULL)
     ASSERT(func_init != NULL)
     ASSERT(func_time_update != NULL)
-    ERROR_CHECK(err)
 #endif
 
     memset(handler, 0, sizeof(i_time_t));

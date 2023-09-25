@@ -17,6 +17,15 @@
 #error R_LIB_CHECK_PARAM_ENABLE is not defined
 #endif
 
+#if !defined R_LIB_ASSERT_MODE
+#error R_LIB_ASSERT_MODE is not defined
+#elif R_LIB_ASSERT_MODE <0
+#error R_LIB_ASSERT_MODE bad value
+#elif R_LIB_ASSERT_MODE > R_LIB_ASSERT_RESET
+#error R_LIB_ASSERT_MODE bad value
+#endif
+
+
 #if !defined R_LIB_LOG_LEVEL
 #error X_LIB_LOG_LEVEL is not defined in config.h.
 #endif

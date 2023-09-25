@@ -13,12 +13,10 @@
 #define LOG_MODULE    R_LIB_LOG_MODULE
 
 
-return_t c_timespan_init(c_error_h err,c_timespan_h ptr)
+return_t c_timespan_init(c_timespan_h ptr)
 {
 #if R_LIB_CHECK_PARAM_ENABLE == 1
-    ASSERT(err != NULL)
     ASSERT(ptr != NULL)
-    ERROR_CHECK(err)
 #endif
     memset(ptr, 0, sizeof(c_timespan_t));
     return X_RET_OK;
