@@ -23,4 +23,13 @@
 #define I_RET_ERROR_SERIAL_WRITE_TIMEOUT     -2014
 #define I_RET_ERROR_SERIAL_WRITE_FAILED      -2015
 
+#define I_RET_ERROR_SPI_OPEN                 -2020
+#define I_RET_ERROR_SPI_CLOSE                -2021
+#define I_RET_ERROR_SPI_READ                 -2022
+#define I_RET_ERROR_SPI_READ_TIMEOUT         -2023
+#define I_RET_ERROR_SPI_WRITE                -2023
+#define I_RET_ERROR_SPI_WRITE_TIMEOUT        -2024
+
+
+
 #endif /* INTERFACES_I_RETURN_CODES_H_ */
