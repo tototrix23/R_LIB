@@ -68,6 +68,21 @@
 #error OPERATING_SYSTEM bad value
 #endif
 
+#if !defined RESET
+#error RESET not defined
+#endif
+
+#if !defined TEMPO_US
+#error TEMPO_US not defined
+#endif
+
+#if !defined TEMPO_MS
+#error TEMPO_MS not defined
+#endif
+
+#if !defined TEMPO_S
+#error TEMPO_S not defined
+#endif
 
 
 #endif /* CORE_C_CONFIG_VERIFY_H_ */

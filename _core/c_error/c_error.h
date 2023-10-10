@@ -11,7 +11,8 @@
 #include <_config_compiler/config.h>
 #include "_core/c_typedefs.h"
 #include "_core/c_return_codes.h"
-
+#include "_core/c_error/c_error.h"
+#include "_core/c_log.h"
 
 
 #define RLIB_ERROR_RETURN(a, code)                                    \
