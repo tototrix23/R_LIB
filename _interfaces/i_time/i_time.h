@@ -31,7 +31,7 @@ typedef i_time_t* i_time_h;
 /// <param name="func_init">fonction d'initialisation </param>
 /// <param name="func_get_time">fonction pour récupérer le temps</param>
 /// <returns></returns>
-i_time_t i_time_create( void* func_init, void* func_time_update);
+
 return_t i_time_init(i_time_h handler, void* func_init, void* func_time_update);
 
 #endif /* INTERFACES_I_TIME_I_TIME_H_ */
