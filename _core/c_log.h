@@ -15,7 +15,13 @@
 #define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 
+#ifndef LOG_LEVEL
+#define LOG_LEVEL      LOG_LVL_NONE
+#endif
 
+#ifndef LOG_MODULE
+#define LOG_MODULE    "UNDEF_LOG_MODULE"
+#endif
 
 
 #if LOG_ENABLE == 1
