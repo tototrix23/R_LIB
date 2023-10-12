@@ -6,9 +6,9 @@
  */
 
 #include <math.h>
+#include <_core/c_math/c_math.h>
 #include "c_protected.h"
 
-static bool_t floatCompare(float f1, float f2);
 
 return_t c_protected_get_float(float* ptrSrc,float* ptrDest)
 {
@@ -25,16 +25,9 @@ return_t c_protected_get_float(float* ptrSrc,float* ptrDest)
     {
         f1 = *ptrSrc;
         f2 = *ptrSrc;
-    }while(floatCompare(f1,f2) == FALSE);
+    }while(c_math_float_equality(f1,f2) == FALSE);
     *ptrDest = f1;
     return ret;
 }
 
 
-static bool_t floatCompare(float f1, float f2)
-{
-    static const float epsilon = 1.0e-05f;
-    if (fabsf(f1 - f2) <= epsilon)
-        return TRUE;
-    return fabsf(f1 - f2) <= epsilon * fmaxf(fabsf(f1), fabsf(f2));
-}
