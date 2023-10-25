@@ -8,10 +8,7 @@
 #ifndef HAL_H_DRV8316_H_DRV8316_H_
 #define HAL_H_DRV8316_H_DRV8316_H_
 
-#include "_core/c_typedefs.h"
-#include "_core/c_return_codes.h"
-#include "_core/c_error/c_error.h"
-#include "_core/c_log.h"
+#include <_core/c_common.h>
 #include "_hal/h_return_codes.h"
 #include "_interfaces/i_spi/i_spi.h"
 

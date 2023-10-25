@@ -12,6 +12,7 @@
 #include "_core/c_log.h"
 #include "_target/t_targets.h"
 #include "_target/t_operating_systems.h"
+#include "_target/t_delay.h"
 
 #if !defined R_LIB_CHECK_PARAM_ENABLE
 #error R_LIB_CHECK_PARAM_ENABLE is not defined

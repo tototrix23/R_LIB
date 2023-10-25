@@ -12,18 +12,23 @@
 #define TARGET_X86          2
 #define TARGET_COUNT        2
 
-
-
+#define PARAMETER_NOT_USED(p)    (void) ((p))
 
 #ifdef TARGET_RENESAS_RA
 #include "bsp_api.h"
-#define RESET() NVIC_SystemReset()
-#define TEMPO_US(x) R_BSP_SoftwareDelay(x, BSP_DELAY_UNITS_MICROSECONDS)
-#define TEMPO_MS(x) R_BSP_SoftwareDelay(x, BSP_DELAY_UNITS_MILLISECONDS)
-#define TEMPO_S(x) R_BSP_SoftwareDelay(x, BSP_DELAY_UNITS_SECONDS)
-#else
-
 #endif
+
+#if OPERATING_SYSTEM == T_OS_THREADX
+#include "tx_api.h"
+#endif
+
+#ifdef TARGET_RENESAS_RA
+#define RESET() NVIC_SystemReset()
+#else
+#define RESET() (void)()
+#endif
+
+
 
 
 
