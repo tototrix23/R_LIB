@@ -29,7 +29,7 @@ void delay_us(uint32_t value)
 void delay_ms(uint32_t value)
 {
 #if OPERATING_SYSTEM == T_OS_THREADX
-    ULONG delay=value;
+    volatile ULONG delay=value;
     if(delay >= TICKS_RES)
     {
         delay = (ULONG)(delay/TICKS_RES);
@@ -49,7 +49,7 @@ void delay_ms(uint32_t value)
 void delay_s(uint32_t value)
 {
 #if OPERATING_SYSTEM == T_OS_THREADX
-    ULONG delay = (ULONG)(value*TICKS_RES);
+    volatile ULONG delay = (ULONG)(value*TICKS_RES);
     tx_thread_sleep (delay);
 #else
     R_BSP_SoftwareDelay(value, BSP_DELAY_UNITS_SECONDS);
