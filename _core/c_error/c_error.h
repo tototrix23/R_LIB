@@ -15,6 +15,7 @@
 #include "_core/c_log.h"
 
 
+
 #define RLIB_ERROR_RETURN(a, code)                                    \
     {                                                                 \
         if ((a))                                                      \
@@ -79,11 +80,13 @@
 
 
 
-#define    ERROR_RETURN(a, code)              RLIB_ERROR_RETURN(a, code)
+#define    ERROR_TEST_RETURN(a, code)         RLIB_ERROR_RETURN(a, code)
 #define    ASSERT(a)                          RLIB_ERROR_ASSERT(a)
-#define    ERROR_SET_AND_RETURN(code)         RLIB_ERROR_SET_AND_RETURN( code)
-
-
-
+#define    ERROR_LOG_AND_RETURN(code)         RLIB_ERROR_SET_AND_RETURN( code)
+#define    ERROR_LOG_AND_SET(ret,code)                               \
+    {                                                                \
+         ret = code;                                                 \
+         LOG_E(LOG_STD,"SET ERROR %d",code);                         \
+    }                                                                \
 
 #endif /* CORE_C_ERROR_H_ */
