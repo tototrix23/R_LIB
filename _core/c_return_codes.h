@@ -31,5 +31,5 @@
 #define X_RET_INVALID_PARAM                      -20
 #define X_RET_BUFFER_SIZE                        -21
 #define X_RET_BAD_LENGTH                         -22
-
+#define X_RET_VERIFY_FAILED                      -23
 #endif /* CORE_C_RETURN_CODES_H_ */
