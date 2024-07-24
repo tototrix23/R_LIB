@@ -113,6 +113,55 @@ return_t h_drv8323s_clear_fault(h_drv8323s_h handler)
     return h_drv8323s_read_all_registers(handler);
 }
 
+return_t h_drv8323s_get_gain(h_drv8323s_h handler,bool_t read_before, uint8_t *gain)
+{
+    return_t ret = X_RET_OK;
+    if(read_before)
+    {
+        ret = h_drv8323s_read_all_registers(handler);
+        if(ret != X_RET_OK) return ret;
+    }
+    uint8_t value_reg = handler->registers.csa_control.bits.GAIN;
+    if(value_reg == 0)      *gain = 5;
+    else if(value_reg == 1) *gain = 10;
+    else if(value_reg == 2) *gain = 20;
+    else if(value_reg == 3) *gain = 40;
+
+    return ret;
+}
+
+return_t h_drv8323s_set_gain_x5(h_drv8323s_h handler)
+{
+    return_t ret = X_RET_OK;
+    handler->registers.csa_control.bits.GAIN = 0;
+    ret = h_drv8323s_write_reg(handler,DRV8323S_CSA_CONTROL_REGISTER_ADDR);
+    return ret;
+}
+
+return_t h_drv8323s_set_gain_x10(h_drv8323s_h handler)
+{
+    return_t ret = X_RET_OK;
+    handler->registers.csa_control.bits.GAIN = 1;
+    ret = h_drv8323s_write_reg(handler,DRV8323S_CSA_CONTROL_REGISTER_ADDR);
+    return ret;
+}
+
+return_t h_drv8323s_set_gain_x20(h_drv8323s_h handler)
+{
+    return_t ret = X_RET_OK;
+    handler->registers.csa_control.bits.GAIN = 2;
+    ret = h_drv8323s_write_reg(handler,DRV8323S_CSA_CONTROL_REGISTER_ADDR);
+    return ret;
+}
+
+return_t h_drv8323s_set_gain_x40(h_drv8323s_h handler)
+{
+    return_t ret = X_RET_OK;
+    handler->registers.csa_control.bits.GAIN = 3;
+    ret = h_drv8323s_write_reg(handler,DRV8323S_CSA_CONTROL_REGISTER_ADDR);
+    return ret;
+}
+
 static return_t h_drv8323s_read_reg(h_drv8323s_h handler,uint8_t addr)
 {
     return_t ret = X_RET_OK;

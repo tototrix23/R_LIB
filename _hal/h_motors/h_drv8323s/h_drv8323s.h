@@ -12,6 +12,8 @@
 #include "_hal/h_return_codes.h"
 #include "_interfaces/i_spi/i_spi.h"
 
+
+
 typedef union{
    struct
    {
@@ -143,5 +145,9 @@ return_t h_drv8323s_read_all_registers(h_drv8323s_h handler);
 return_t h_drv8323s_read_status_registers(h_drv8323s_h handler);
 return_t h_drv8323s_write_all_registers(h_drv8323s_h handler);
 return_t h_drv8323s_clear_fault(h_drv8323s_h handler);
-
+return_t h_drv8323s_get_gain(h_drv8323s_h handler,bool_t read_before, uint8_t *gain);
+return_t h_drv8323s_set_gain_x5(h_drv8323s_h handler);
+return_t h_drv8323s_set_gain_x10(h_drv8323s_h handler);
+return_t h_drv8323s_set_gain_x20(h_drv8323s_h handler);
+return_t h_drv8323s_set_gain_x40(h_drv8323s_h handler);
 #endif /* HAL_H_DRV8323S_H_DRV8323S_H_ */
