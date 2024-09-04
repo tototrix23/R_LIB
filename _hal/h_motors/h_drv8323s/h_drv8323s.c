@@ -104,12 +104,34 @@ return_t h_drv8323s_clear_fault(h_drv8323s_h handler)
     ASSERT(handler != NULL);
 #endif
     return_t ret = X_RET_OK;
+    uint8_t count = 0;
     ret = h_drv8323s_read_reg(handler,DRV8323S_DRV_CONTROL_REGISTER_ADDR);
     if(ret != X_RET_OK) return ret;
     handler->registers.drv_control.bits.CLR_FLT = 1;
     ret = h_drv8323s_write_reg(handler,DRV8323S_DRV_CONTROL_REGISTER_ADDR);
-    if(ret != X_RET_OK) return ret;
 
+    if(ret != X_RET_OK)
+    {
+        bool_t end = FALSE;
+        do
+        {
+
+            ret = h_drv8323s_read_reg(handler,DRV8323S_DRV_CONTROL_REGISTER_ADDR);
+            if(ret == X_RET_OK && handler->registers.drv_control.bits.CLR_FLT == 0)
+            {
+                end = TRUE;
+            }
+            else
+            {
+                count++;
+                TEMPO_MS(1);
+                if(count >= 3)
+                {
+                    return ret;
+                }
+            }
+        }while(!end);
+    }
     return h_drv8323s_read_all_registers(handler);
 }
 
